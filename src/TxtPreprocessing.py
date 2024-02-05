@@ -55,11 +55,11 @@ def preprocessing(output_folder, txt_file_name):
 
     raw = []
     for txt in raw_txt:
-        if re.match('(\s*)(제\s*[0-9]{1,2}\s*편|제\s*[0-9]{1,2}\s*장|제\s*[0-9]{1,2}\s*절|제\s*[0-9]{1,2}\s*관|제\s*[0-9]{1,3}\s*조\(|부\s*칙|작\s*성\s*관)', txt):
-            split_text = re.split(r'(제\d+조\()', txt)  ## 편/장/절 중간에 조항이 있으면 쪼개기
+        if re.match('(\s*)(제\s*[0-9]{1,2}\s*편|제\s*[0-9]{1,2}\s*장|제\s*[0-9]{1,2}\s*절|제\s*[0-9]{1,2}\s*관|제\s*[0-9]{1,3}\s*조\(|제\d+조\[|부\s*칙|작\s*성\s*관)', txt):
+            split_text = re.split(r'(제\d+조\(|제\d+조\()', txt)  ## 편/장/절 중간에 조항이 있으면 쪼개기
             if len(split_text) >= 2:
-                split_idx = [i for i, s in enumerate(split_text) if re.search(r'(제\d+조\()',s)]
-                for idx in sorted(split_idx, reverse=True):
+                split_idx = [i for i, s in enumerate(split_text) if re.search(r'(제\d+조\(|제\d+조\[)',s)]
+                for idx in sorted(split_idx, reversec=True):
                     split_text[idx+1] = split_text[idx] + split_text[idx+1]
                     del split_text[idx]
                 split_text = [s for s in split_text if s]
@@ -67,9 +67,9 @@ def preprocessing(output_folder, txt_file_name):
             else:
                 raw.append(txt)
         else:
-            split_text = re.split(r'(제\d+조\()', txt)  ## 문장 중간에 조항이 있으면 쪼개기
+            split_text = re.split(r'(제\d+조\(|제\d+조\[)', txt)  ## 문장 중간에 조항이 있으면 쪼개기
             if len(split_text) >= 2:
-                split_idx = [i for i, s in enumerate(split_text) if re.search(r'(제\d+조\()',s)]
+                split_idx = [i for i, s in enumerate(split_text) if re.search(r'(제\d+조\(|제\d+조\[)',s)]
                 for idx in sorted(split_idx, reverse=True):
                     split_text[idx+1] = split_text[idx] + split_text[idx+1]
                     del split_text[idx]
