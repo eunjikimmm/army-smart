@@ -59,7 +59,7 @@ def preprocessing(output_folder, txt_file_name):
             split_text = re.split(r'(제\d+조\(|제\d+조\()', txt)  ## 편/장/절 중간에 조항이 있으면 쪼개기
             if len(split_text) >= 2:
                 split_idx = [i for i, s in enumerate(split_text) if re.search(r'(제\d+조\(|제\d+조\[)',s)]
-                for idx in sorted(split_idx, reversec=True):
+                for idx in sorted(split_idx, reverse=True):
                     split_text[idx+1] = split_text[idx] + split_text[idx+1]
                     del split_text[idx]
                 split_text = [s for s in split_text if s]
