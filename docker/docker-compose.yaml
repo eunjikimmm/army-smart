@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  disease:
+    image: docker-pri.maum.ai:443/brain/llm-server:v0.2.4
+    container_name: army_smart_test_container
+    ports:
+      - 36010:36000
+    tty: true
+    stdin_open: true
+    ipc: host
+    runtime: nvidia
+    volumes:
+      - /home/minds/army_smart/docker/gpt/transformer/ckpt:/ckpt
+      - /NAS4/by_brain/maumGPT/Llama2-13B/Base/23.10v1-rc2_conv:/init_model
+    environment:
+      - LC_ALL=C.UTF-8
+      - NVIDIA_VISIBLE_DEVICES=0
