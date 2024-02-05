@@ -1,0 +1,6 @@
+candidate_pool/
+data/
+docker/gpt
+src/__pycache__/
+test.txt
+*.ipynb
