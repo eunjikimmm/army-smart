@@ -6,3 +6,4 @@ docker/gpt
 src/__pycache__/
 test.txt
 *.ipynb
+*.csv
