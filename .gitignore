@@ -3,6 +3,7 @@ llm_train_data/llm_train_text_2/
 */candidate_pool/
 data/
 docker/gpt
+docker/retriever
 src/__pycache__/
 test.txt
 *.ipynb

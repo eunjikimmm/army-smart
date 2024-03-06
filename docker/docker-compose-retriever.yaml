@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  army_smart:
+    image: docker-pri.maum.ai:443/brain/text_retriever:1.4.0 # 버전 변경에 따라 맞춰 변경
+    container_name: army_smart_retriever
+    tty: true
+    stdin_open: true
+    ipc: host
+    runtime: nvidia
+    ports:
+      - 25189:36000
+    volumes:
+      - /home/minds/army_smart/retrieval_data:/train_data ## retrieval data : candidate pool, train data
+      - /home/minds/army_smart/docker/retriever:/ckpt     ## retrieval model
+    environment:
+      - LC_ALL=C.UTF-8
+      - NVIDIA_VISIBLE_DEVICES=0
