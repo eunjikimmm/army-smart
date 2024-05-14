@@ -1,6 +1,6 @@
 llm_train_data/llm_train_text/
 llm_train_data/llm_train_text_2/
-*/candidate_pool/
+*/candidate_pool*/
 data/
 docker/gpt
 docker/retriever
