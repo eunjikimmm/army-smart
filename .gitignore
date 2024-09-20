@@ -10,5 +10,5 @@ docker/gpt
 docker/retriever
 src/__pycache__/
 test.txt
-*.ipynb
+# *.ipynb
 *.csv
