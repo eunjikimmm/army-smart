@@ -1,0 +1,20 @@
+version: '3.9'
+
+services:
+  disease:
+    image: docker-pri.maum.ai:443/brain/simple_gpt:1.3.0
+    container_name: army_smart_llm_train_djh
+    ports:
+      - 36011:36000
+    tty: true
+    stdin_open: true
+    ipc: host
+    runtime: nvidia
+    volumes:
+      - /home/minds/army_smart/docker/gpt/ckpt:/ckpt
+      - /home/minds/army_smart/candidate_pool:/train_data
+      - /NAS4/by_brain/maumGPT/Llama2-13B/Base/23.10v1-rc2_conv:/init_model
+      - /NAS4/converter/llama-2-13b-chat-hf-CoIT-1ep-moreinst-ds3-pulfinetune_conv:/init_model2
+    environment:
+      - LC_ALL=C.UTF-8
+      - NVIDIA_VISIBLE_DEVICES=0
