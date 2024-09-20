@@ -19,8 +19,8 @@ def save_pdf_as_text(pdf_file_path, output_text_file_path):
             text_file.write(page.extract_text())
 
 # 입력 PDF 파일이 있는 폴더 경로와 출력 텍스트 파일이 저장될 폴더를 설정합니다.
-# PDF_FOLDER_PATH = r'C:\Users\mindslab\PycharmProjects\XDC\environment_eval\환경2023\사전\pdf'
-# OUTPUT_FOLDER = r'C:\Users\mindslab\PycharmProjects\XDC\environment_eval\환경2023\사전\txt'
+PDF_FOLDER_PATH = r'/home/minds/army_smart/data/pdf/516_동원기획관실 심의위원회 운용에 관한 예규_1.pdf'
+OUTPUT_FOLDER = r'/home/minds/army_smart/data/txt/516_동원기획관실 심의위원회 운용에 관한 예규_1.txt'
 
-# # 함수 호출
-# save_all_pdfs_as_texts(PDF_FOLDER_PATH, OUTPUT_FOLDER)
+# 함수 호출
+save_pdf_as_text(PDF_FOLDER_PATH, OUTPUT_FOLDER)
